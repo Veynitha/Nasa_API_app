@@ -11,7 +11,6 @@
     "@mui/x-date-pickers": "^7.3.1",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.8",
-    "boxicons": "^2.1.4",
     "dayjs": "^1.11.11",
     "dotenv": "^16.4.5",
     "jest-environment-jsdom": "^29.7.0",

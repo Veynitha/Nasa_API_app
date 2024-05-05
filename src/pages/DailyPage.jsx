@@ -19,7 +19,8 @@ function DailyPage() {
     };
 
     const fetchDailyData = async () => {
-        const currentDate = formatDate(dailyDate);
+        const currentDate = formatDate(new Date());
+        setDailyDate(currentDate);
         const requestData = await getDailyPictureData({ date: currentDate });
         if (!requestData) {
             const previousDate = new Date();
@@ -52,6 +53,7 @@ function DailyPage() {
 
     useEffect(() => {
         fetchDailyData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dailyDate]);
 
     return (

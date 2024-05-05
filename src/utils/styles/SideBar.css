@@ -103,3 +103,7 @@
     text-decoration: none;
     width: max-content;
 }
+
+.sidebar-inner ul li:hover a {
+    color: white;
+}

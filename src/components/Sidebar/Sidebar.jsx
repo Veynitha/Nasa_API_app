@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../../utils/styles/SideBar.css';
-import { BoxIconElement } from 'boxicons';
 import SignOutComponent from '../Auth/SignOut';
+import { HomeOutlined, RocketOutlined, CalendarMonth, Info, ExitToApp, ListOutlined  } from '@mui/icons-material';
 
 function Sidebar() {
     const [showBoxIcons, setShowBoxIcons] = useState(true);
@@ -24,22 +24,22 @@ function Sidebar() {
             <nav className='sidebar-inner' onClick={handleLinkClick}>
                 <div className="logo">
                     <button className="icon-button" onClick={handleButtonClick}>
-                        <box-icon name='list-ul' size='lg'></box-icon>
+                        <ListOutlined sx={{ color: 'black', marginBottom: '20px'}}/>
                     </button>
                 </div>
                 <ul className="nav-row">
                     {showBoxIcons && (
                         <>
                             <li>
-                                <box-icon name='home' className="icon" ></box-icon>
+                            <HomeOutlined sx={{ color: 'black', marginLeft: '10px', marginRight: '10px'}}/>
                                 <a href='/'>Home</a>
                             </li>                                      
                             <li>
-                                <box-icon name='calendar-alt'></box-icon>
+                                <CalendarMonth sx={{ color: 'black', marginLeft: '10px', marginRight: '10px'}}/>
                                 <a href='/daily'>APOD</a>
                             </li>                                     
                             <li>
-                                <box-icon name='rocket' className="icon" ></box-icon>
+                                <RocketOutlined sx={{ color: 'black', marginLeft: '10px', marginRight: '10px'}}/>
                                 <a href='/rover'>Rover Pics</a>
                             </li>
                         </>
@@ -49,11 +49,11 @@ function Sidebar() {
             <nav className='sidebar-inner'>
                 <ul className="nav-row">
                     <li>
-                        <box-icon name='info-square'></box-icon>
+                        <Info sx={{ color: 'black',marginLeft: '10px', marginRight: '10px'}}/>
                         <a href='/login'>Sign In</a>
                     </li>                                      
                     <li>
-                        <box-icon type='solid' name='log-out'></box-icon>
+                        <ExitToApp sx={{ color: 'black', marginLeft: '10px', marginRight: '10px'}}/>
                         <SignOutComponent />
                     </li>                                                           
                 </ul>

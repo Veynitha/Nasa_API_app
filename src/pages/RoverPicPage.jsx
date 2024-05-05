@@ -2,20 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { getRoverPictureData, getRoverManifest } from '../services/ExternalAPIService';
 import { Pagination } from '@mui/material';
 import ImageLister from '../components/ImageLister/ImageLister';
-import { CuriosityCameras, OpportunityCameras, SpiritCameras, Rovers } from '../utils/constants/Dropdown';
+import { CuriosityCameras } from '../utils/constants/Dropdown';
 import BasicSelect from '../components/Dropdown/BasicSelect';
 
 const RoverPicPage = () => {
     const [photos, setPhotos] = useState([]);
     const [page, setPage] = useState(1);
     const [camera, setCamera] = useState('');
-    const [rover, setRover] = useState('Curiosity');
     const [camInfo, setCamInfo] = useState([]);
-    const [minSol, setMinSol] = useState(1);
     const [maxSol, setMaxSol] = useState(1);
     const [sol, setSol] = useState(1);
     const [error, setError] = useState(false);
     const [solError, setSolError] = useState('');
+    
+    const minSol = 1;
+    const rover = 'Curiosity';	
 
     const fetchPhotos = async () => {
         try {
@@ -68,7 +69,11 @@ const RoverPicPage = () => {
 
     useEffect(() => {
         setCamInfo(CuriosityCameras);
+    }, [camera]);
+
+    useEffect(() => {
         fetchPhotos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page]);
 
     return (
