@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AuthOutlet from "@auth-kit/react-router/AuthOutlet";
+// import AuthOutlet from "@auth-kit/react-router/AuthOutlet";
 
 import Homepage from "./pages/Homepage";
 import DailyPage from "./pages/DailyPage";
