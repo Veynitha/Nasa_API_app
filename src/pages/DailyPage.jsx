@@ -6,11 +6,12 @@ import { DatePicker } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
 
 function DailyPage() {
-    const [dailyDate, setDailyDate] = useState(new Date());
     const [imageUrl, setImageUrl] = useState("");
     const [imageTitle, setImageTitle] = useState("");
     const [imageExplanation, setImageExplanation] = useState("");
     const [date, setDate] = useState(dayjs());
+
+    const dailyDate = new Date();
 
     const setImageData = (data) => {
         setImageUrl(data.url);
@@ -19,8 +20,7 @@ function DailyPage() {
     };
 
     const fetchDailyData = async () => {
-        const currentDate = formatDate(new Date());
-        setDailyDate(currentDate);
+        const currentDate = formatDate(dailyDate);
         const requestData = await getDailyPictureData({ date: currentDate });
         if (!requestData) {
             const previousDate = new Date();
@@ -53,7 +53,7 @@ function DailyPage() {
 
     useEffect(() => {
         fetchDailyData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dailyDate]);
 
     return (
@@ -61,12 +61,12 @@ function DailyPage() {
             <h1 className='text-5xl font-bold mb-10'>{imageTitle}</h1>
             <div className='mb-7'>
                 <DatePicker
-                        value={date}
-                        onChange={handleDateChange}
-                        format="YYYY/MM/DD"
-                        renderInput={(params) => <input {...params} />}
-                        className='bg-white p-1 rounded-md shadow-md mr-4'
-                        maxDate={dayjs(new Date())}
+                    value={date}
+                    onChange={handleDateChange}
+                    format="YYYY/MM/DD"
+                    renderInput={(params) => <input {...params} />}
+                    className='bg-white p-1 rounded-md shadow-md mr-4'
+                    maxDate={dayjs(new Date())}
                 />
             </div>
             <div className="flex flex-col items-center"> {/* Wrapper div for the image and paragraph */}

@@ -1,5 +1,6 @@
 import React from "react";
 import { render, fireEvent, waitFor } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom"; // Import MemoryRouter
 import { register } from "../../services/ExternalAPIAuthService";
 import Register from "../Register";
 
@@ -16,7 +17,11 @@ describe("Register Component", () => {
     };
     register.mockResolvedValueOnce(mockResponse);
 
-    const { getByPlaceholderText, getByText } = render(<Register />);
+    const { getByPlaceholderText, getByText } = render(
+      <MemoryRouter> {/* Wrap your component with MemoryRouter */}
+        <Register />
+      </MemoryRouter>
+    );
 
     const nameInput = getByPlaceholderText("Name");
     const emailInput = getByPlaceholderText("Email");
@@ -42,7 +47,11 @@ describe("Register Component", () => {
   it("Displays error message if registration fails", async () => {
     register.mockResolvedValueOnce(null);
 
-    const { getByPlaceholderText, getByText } = render(<Register />);
+    const { getByPlaceholderText, getByText } = render(
+      <MemoryRouter> {/* Wrap your component with MemoryRouter */}
+        <Register />
+      </MemoryRouter>
+    );
 
     const nameInput = getByPlaceholderText("Name");
     const emailInput = getByPlaceholderText("Email");

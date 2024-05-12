@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import AuthOutlet from "@auth-kit/react-router/AuthOutlet";
+import AuthOutlet from "@auth-kit/react-router/AuthOutlet";
 
 import Homepage from "./pages/Homepage";
 import DailyPage from "./pages/DailyPage";
@@ -25,10 +25,10 @@ function App() {
               <Route path="/" element={<Homepage />} />
               <Route path="/login" element={<LoginForm />} />
               <Route path="/register" element={<Register />} />
-              {/* <Route element={<AuthOutlet fallbackPath="/login" />}> */}
-              <Route path="/daily" element={<DailyPage />} />
-              <Route path="/rover" element={<RoverPicPage />} />
-              {/* </Route> */}
+              <Route element={<AuthOutlet fallbackPath="/login" />}>
+                <Route path="/daily" element={<DailyPage />} />
+                <Route path="/rover" element={<RoverPicPage />} />
+              </Route>
             </Routes>
           </div>
         </div>
