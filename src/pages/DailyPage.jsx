@@ -11,7 +11,7 @@ function DailyPage() {
     const [imageExplanation, setImageExplanation] = useState("");
     const [date, setDate] = useState(dayjs());
 
-    const dailyDate = new Date();
+    let dailyDate = new Date();
 
     const setImageData = (data) => {
         setImageUrl(data.url);
@@ -54,7 +54,7 @@ function DailyPage() {
     useEffect(() => {
         fetchDailyData();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [dailyDate]);
+    }, []);
 
     return (
         <div className='flex flex-col items-center justify-center mb-5'>
