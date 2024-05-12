@@ -25,10 +25,10 @@ function App() {
               <Route path="/" element={<Homepage />} />
               <Route path="/login" element={<LoginForm />} />
               <Route path="/register" element={<Register />} />
-              <Route element={<AuthOutlet fallbackPath="/login" />}>
+              {/* <Route element={<AuthOutlet fallbackPath="/login" />}> */}
                 <Route path="/daily" element={<DailyPage />} />
                 <Route path="/rover" element={<RoverPicPage />} />
-              </Route>
+              {/* </Route> */}
             </Routes>
           </div>
         </div>
