@@ -40,8 +40,8 @@
 
 1. **Clone the repo**  
    ```bash
-   git clone https://github.com/your-username/nasa-explorer.git
-   cd nasa-explorer
+   git clone https://github.com/Veynitha/Nasa_API_app.git
+   cd Nasa_API_app
    ```
 2. **Install Content**
   ```bash
